@@ -1,0 +1,69 @@
+.login_page {
+  background-image: url(../../../assets/images2/login_bg.jpg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.login_account {
+  background-color: rgb(204, 178, 169);
+  border-radius: 8px;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="address"],
+.form__btn {
+  border-radius: 8px;
+}
+
+.login_hide {
+  filter: blur(5px);
+  pointer-events: none !important;
+}
+
+.otp {
+  position: absolute;
+  top: 100vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: red;
+  width: 0px;
+  height: 0px;
+  padding: 5rem 2rem 0rem 2rem;
+  border-radius: 8px;
+  z-index: 1000;
+  visibility: hidden;
+  background-image: url(../../../assets/images2/login_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 250ms ease-in-out;
+}
+
+.otp > img {
+  width: 30px;
+  height: 30px;
+  margin-left: 90%;
+  cursor: pointer;
+}
+
+.otp > form > input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+}
+
+.otp > form > input[type="submit"] {
+  width: 80px;
+  margin-top: 1rem;
+}
+
+.box_show {
+  visibility: visible !important;
+  width: 500px !important;
+  height: 300px !important;
+}

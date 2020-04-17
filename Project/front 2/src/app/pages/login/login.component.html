@@ -1,0 +1,298 @@
+<!-- Start Bradcaump area -->
+<div class="ht__bradcaump__area bg-image--6">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="bradcaump__inner text-center">
+          <h2 class="bradcaump-title" id="heading">My Account</h2>
+          <nav class="bradcaump-content">
+            <a class="breadcrumb_item" href="index.html" id="heading">Home</a>
+            <span class="brd-separetor">/</span>
+            <span class="breadcrumb_item active" id="heading">My Account</span>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Bradcaump area -->
+<!-- Start My Account Area -->
+<section
+  class="my_account_area pt--80 pb--55 bg--white login_page"
+  id="login_page"
+>
+  <div class="container">
+    <div class="row">
+      <!--Login form data and code -->
+      <div class="col-lg-6 col-12">
+        <div class="my__account__wrapper">
+          <h3 class="account__title" id="acc">Login</h3>
+
+          <form [formGroup]="login" class="login_account" (ngSubmit)="Login()">
+            <div class="account__form">
+              <div class="input__box">
+                <label id="acc">Username or email address <span>*</span></label>
+                <input type="text" formControlName="email" />
+                <div
+                  *ngIf="
+                    login.controls.email.invalid && login.controls.email.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="login.controls.email.errors.required">
+                    Email is required
+                  </div>
+                </div>
+              </div>
+              <div class="input__box">
+                <label id="acc">Contact.No<span>*</span></label>
+                <input type="text" formControlName="contact" />
+                <div
+                  *ngIf="
+                    login.controls.contact.invalid &&
+                    login.controls.contact.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="login.controls.contact.errors.required">
+                    Contact.No is required
+                  </div>
+                </div>
+              </div>
+              <div class="input__box">
+                <label id="acc">Password<span>*</span></label>
+                <input type="text" formControlName="password" />
+                <div
+                  *ngIf="
+                    login.controls.password.invalid &&
+                    login.controls.password.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="login.controls.password.errors.required">
+                    Password is required
+                  </div>
+                </div>
+              </div>
+              <div class="form__btn">
+                <button>
+                  <input
+                    type="submit"
+                    value="Login"
+                    class="btn btn-success"
+                    [disabled]="login.invalid"
+                  />
+                </button>
+              </div>
+              <a class="forget_pass" [routerLink]="['/forget']" id="acc"
+                >Lost your password?</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--Register data and code -->
+
+      <div class="col-lg-6 col-12">
+        <div class="my__account__wrapper">
+          <h3 class="account__title" id="acc">Register</h3>
+
+          <form
+            [formGroup]="registation"
+            class="login_account"
+            (ngSubmit)="Register()"
+          >
+            <div class="account__form">
+              <div class="input__box">
+                <label id="acc">Name <span>*</span></label>
+                <input type="text" formControlName="name" />
+                <div
+                  *ngIf="
+                    registation.controls.name.invalid &&
+                    registation.controls.name.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="registation.controls.name.errors.required">
+                    Name is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="input__box">
+                <label id="acc">Password<span>*</span></label>
+                <input type="password" formControlName="password" />
+                <div
+                  *ngIf="
+                    registation.controls.password.invalid &&
+                    registation.controls.password.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="registation.controls.password.errors.required">
+                    Password is required
+                  </div>
+                  <div *ngIf="registation.controls.password.errors.minlength">
+                    8 char required
+                  </div>
+                </div>
+              </div>
+              <div class="input__box">
+                <label id="acc">Confirm Password<span>*</span></label>
+                <input type="password" formControlName="confirm_password" />
+                <div
+                  *ngIf="
+                    registation.controls.confirm_password.invalid &&
+                    registation.controls.confirm_password.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div
+                    *ngIf="
+                      registation.controls.confirm_password.errors.required
+                    "
+                  >
+                    Confirm your password
+                  </div>
+                  <div
+                    *ngIf="
+                      registation.get('confirm_password').errors.ConfirmPassword
+                    "
+                  >
+                    Passsword and ConfirmPassword didn't match.
+                  </div>
+                </div>
+              </div>
+
+              <div class="input__box">
+                <label id="acc">Email address <span>*</span></label>
+                <input type="email" formControlName="email" />
+                <div
+                  *ngIf="
+                    registation.controls.email.invalid &&
+                    registation.controls.email.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="registation.controls.email.errors.required">
+                    Email is required
+                  </div>
+                </div>
+              </div>
+              <div class="input__box">
+                <label id="acc">Contact No. <span>*</span></label>
+                <input type="tel" formControlName="contact" />
+                <div
+                  *ngIf="
+                    registation.controls.contact.invalid &&
+                    registation.controls.contact.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="registation.controls.contact.errors.required">
+                    Contact number is required
+                  </div>
+                  <div *ngIf="registation.controls.contact.errors.minlength">
+                    Not a valid number
+                  </div>
+                  <div *ngIf="registation.controls.contact.errors.pattern">
+                    Integer is required
+                  </div>
+                </div>
+              </div>
+              <div class="input__box">
+                <label id="acc">Address <span>*</span></label>
+                <input type="address" formControlName="address" />
+                <div
+                  *ngIf="
+                    registation.controls.address.invalid &&
+                    registation.controls.address.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="registation.controls.address.errors.required">
+                    Address is Required
+                  </div>
+                </div>
+              </div>
+              <div class="input__box">
+                <label id="acc">PIN CODE <span>*</span></label>
+                <input type="text" formControlName="pincode" />
+                <div
+                  *ngIf="
+                    registation.controls.pincode.invalid &&
+                    registation.controls.pincode.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="registation.controls.pincode.errors.required">
+                    PinCode is Required
+                  </div>
+                  <div *ngIf="registation.controls.pincode.errors.pattern">
+                    Integer is Required
+                  </div>
+                </div>
+              </div>
+              <div class="input__box">
+                <label id="acc">State <span>*</span></label>
+                <input type="text" formControlName="state" />
+                <div
+                  *ngIf="
+                    registation.controls.state.invalid &&
+                    registation.controls.state.dirty
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="registation.controls.state.errors.required">
+                    state name is required
+                  </div>
+                  <div *ngIf="registation.controls.state.errors.pattern">
+                    Integer not allow
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__btn">
+                <button id="acc">
+                  <input
+                    type="submit"
+                    value="Register"
+                    class="btn btn-success"
+                    [disabled]="registation.invalid"
+                  />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="otp" id="otp">
+  <img src="../../../assets/images2/quit.svg" alt="" />
+  <form [formGroup]="pinform">
+    <label>Otp <span>*</span></label>
+    <input type="text" formControlName="email" />
+    <div
+      *ngIf="pinform.controls.email.invalid && pinform.controls.email.dirty"
+      class="alert alert-danger"
+    >
+      <div *ngIf="pinform.controls.email.errors.required">
+        pin is required
+      </div>
+    </div>
+
+    <input
+      type="submit"
+      value="Send"
+      id="button"
+      (click)="show_otp()"
+      [disabled]="pinform.invalid"
+      class="alert alert-success"
+    />
+  </form>
+</div>

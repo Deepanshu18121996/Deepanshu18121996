@@ -1,0 +1,14 @@
+.wish_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cross {
+  text-decoration: none;
+}
+
+.cross:hover {
+  transform: scale(1.1, 1);
+}

@@ -1,0 +1,103 @@
+<!-- Start Bradcaump area -->
+<div class="ht__bradcaump__area bg-image--6">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="bradcaump__inner text-center">
+          <h2 class="bradcaump-title">Wishlist</h2>
+          <nav class="bradcaump-content">
+            <a class="breadcrumb_item" href="index.html">Home</a>
+            <span class="brd-separetor">/</span>
+            <span class="breadcrumb_item active">Wishlist</span>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- cart-main-area start -->
+<div class="wishlist-area section-padding--lg bg__white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="wishlist-content">
+          <form action="#">
+            <div class="wishlist-table wnro__table table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="product-remove"></th>
+                    <th class="product-thumbnail">Image</th>
+                    <th class="product-name">
+                      <span class="nobr">Product Name</span>
+                    </th>
+                    <th class="product-stock-stauts">
+                      <span class="nobr"> Writer </span>
+                    </th>
+                    <th class="product-price">
+                      <span class="nobr"> Unit Price </span>
+                    </th>
+                    <th class="product-stock-stauts">
+                      <span class="nobr"> Stock Status </span>
+                    </th>
+
+                    <th class="product-add-to-cart"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let wish of wish_data">
+                    <td class="product-remove">
+                      <a
+                        href="javascript:void(0)"
+                        (click)="remove_wish(wish._id)"
+                        class="cross"
+                        >×</a
+                      >
+                    </td>
+                    <td class="product-thumbnail">
+                      <img
+                        src="http://localhost:8899/images/{{ wish.image }}"
+                        class="wish_image"
+                        alt=""
+                      />
+                    </td>
+                    <td class="product-name">
+                      <a href="#">{{ wish.name }}</a>
+                    </td>
+                    <td class="product-add-to-cart">
+                      <span class="amount">{{ wish.writer }}</span>
+                    </td>
+                    <td class="product-price">
+                      <span class="amount">${{ wish.price }}</span>
+                    </td>
+                    <td class="product-stock-status">
+                      <span class="wishlist-in-stock">True</span>
+                    </td>
+
+                    <td class="product-add-to-cart">
+                      <a
+                        href="javascript:void(0)"
+                        class="cross"
+                        (click)="
+                          add_cart(
+                            wish.name,
+                            wish.price,
+                            wish.writer,
+                            wish.image
+                          )
+                        "
+                      >
+                        Add to Cart</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- cart-main-area end -->

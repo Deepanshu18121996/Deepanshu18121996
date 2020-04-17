@@ -1,0 +1,62 @@
+<h1>Add Notes</h1>
+<div>
+  <form [formGroup]="myForm" (ngSubmit)="addNotes()">
+    <div>
+      <label>Choose a Category</label>
+      <select input type="text" class="form-control" formControlName="cname">
+        <option *ngFor="let category of notes_categories$ | async"></option>
+      </select>
+    </div>
+    <br />
+    <!-- Adding Category in Notes Category Via User -->
+    <div>
+      <h6>Not found your category then make your own category</h6>
+      <form [formGroup]="add_notecategory" (ngSubmit)="add_notecat()">
+        <label>Custom Category</label>
+        <input
+          id=""
+          type="text"
+          class="form-control"
+          formControlName="custom"
+          placeholder="Enter Category"
+        />
+        <div
+          *ngIf="
+            add_notecategory.controls.category.invalid &&
+            add_notecategory.controls.category.dirty
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="add_notecategory.controls.category.errors.required">
+            Category is required
+          </div>
+        </div>
+        <input
+          type="submit"
+          value="Add"
+          class="alert alert-success"
+          [disabled]="add_category.invalid"
+        />
+      </form>
+    </div>
+
+    <div>
+      <label>Notes Name</label>
+      <input id="" type="text" class="form-control" formControlName="nname" />
+    </div>
+    <div class="form-group">
+      <label>Notes Description</label>
+      <textarea class="form-control" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Upload PDF</label>
+      <input type="file" class="form-control" (change)="ufile($event)" />
+    </div>
+    <input
+      type="submit"
+      value="Submit"
+      class="btn btn-success"
+      [disabled]="myForm.invalid"
+    />
+  </form>
+</div>
